@@ -61,8 +61,6 @@
 body {
   min-height: 100vh;
   color: var(--color-text);
-  background: fixed linear-gradient(#070707, #070707 6px, transparent 6px, transparent), fixed linear-gradient(transparent, #111 90%), fixed repeating-linear-gradient(#00ff0030, #00ff0030 1px, transparent 1px, transparent 40px), fixed repeating-linear-gradient(to right, #00ff0030, #00ff0030 1px, transparent 1px, transparent 40px) #5553;
-  ;
   transition:
     color 0.5s,
     background-color 0.5s;

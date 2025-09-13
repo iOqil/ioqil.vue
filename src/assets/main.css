@@ -1,3 +1,41 @@
 @import './base.css';
 
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 
+}
+
+:root {
+  --bg-grid: fixed linear-gradient(#070707, #070707 6px, transparent 6px, transparent), fixed linear-gradient(transparent, #111 90%), fixed repeating-linear-gradient(#00ff0030, #00ff0030 1px, transparent 1px, transparent 40px), fixed repeating-linear-gradient(to right, #00ff0030, #00ff0030 1px, transparent 1px, transparent 40px) #5553;
+  --bg-color: #111;
+  --border-color-30: #00ff0030;
+  --primary-color: #00ff00;
+  --card-color: #222;
+}
+
+#app {
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg-grid);
+  ;
+  background-color: var(--bg-color);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+}
+
+@media (max-width: 780px) {
+  main {
+    grid-template-columns: 60px 1fr;
+  }
+
+}
