@@ -24,13 +24,15 @@ button {
 
   &:hover {
     background-color: transparent;
-    border-color: var(--border-color-30);
+    border-color: var(--primary-color);
     color: var(--primary-color);
+    animation: bulb 0.5s linear;
+    animation-iteration-count: 1;
   }
 
   &.bg-none {
     background: transparent;
-    border-color: var(--border-color-30);
+    border-color: var(--primary-color);
     color: var(--primary-color);
 
     &:hover {

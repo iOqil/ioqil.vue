@@ -6,20 +6,56 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
+
+
 :root {
-  --bg-grid: fixed linear-gradient(#070707, #070707 6px, transparent 6px, transparent), fixed linear-gradient(transparent, #111 90%), fixed repeating-linear-gradient(#00ff0030, #00ff0030 1px, transparent 1px, transparent 40px), fixed repeating-linear-gradient(to right, #00ff0030, #00ff0030 1px, transparent 1px, transparent 40px) #5553;
-  --bg-color: #111;
-  --border-color-30: #00ff0030;
-  --primary-color: #00ff00;
-  --card-color: #222;
+  --grid-size: 40px;
+  --bg-grid: fixed linear-gradient(#fff, #fff 6px, transparent 6px, transparent), fixed linear-gradient(transparent, #fff 90%), fixed repeating-linear-gradient(#1113, #1113 1px, transparent 1px, transparent var(--grid-size)), fixed repeating-linear-gradient(to right, #1113, #1113 1px, transparent 1px, transparent var(--grid-size)) #b9ff9d;
+  --bg-color: #fafafa;
+  --border-color-30: #1113;
+  --primary-color: #111;
+  --card-color: #fff;
+  --tag-color: #f1f1f1;
+  --light-color: #111;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-grid: fixed linear-gradient(#070707, #070707 6px, transparent 6px, transparent), fixed linear-gradient(transparent, #111 90%), fixed repeating-linear-gradient(#00ff0030, #00ff0030 1px, transparent 1px, transparent var(--grid-size)), fixed repeating-linear-gradient(to right, #00ff0030, #00ff0030 1px, transparent 1px, transparent var(--grid-size)) #5553;
+    --bg-color: #111;
+    --border-color-30: #00ff0030;
+    --primary-color: #00ff00;
+    --card-color: #222;
+    --tag-color: #333;
+    --light-color: #fff;
+  }
+}
+
+@media (max-width: 780px) {
+  :root {
+    --grid-size: 30px;
+  }
+}
+
+html.light {
+  --bg-grid: fixed linear-gradient(#fff, #fff 6px, transparent 6px, transparent), fixed linear-gradient(transparent, #fff 90%), fixed repeating-linear-gradient(#1113, #1113 1px, transparent 1px, transparent var(--grid-size)), fixed repeating-linear-gradient(to right, #1113, #1113 1px, transparent 1px, transparent var(--grid-size)) #b9ff9d;
+  --bg-color: #fafafa;
+  --border-color-30: #1113;
+  --primary-color: #111;
+  --card-color: #fff;
+  --tag-color: #f1f1f1;
+  --light-color: #111;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 #app {
   height: 100dvh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 body {
@@ -28,14 +64,38 @@ body {
   background-color: var(--bg-color);
 }
 
-main {
-  display: grid;
-  grid-template-columns: 80px 1fr;
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
 }
 
-@media (max-width: 780px) {
-  main {
-    grid-template-columns: 60px 1fr;
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #003800, #00ff0080);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: blue;
+}
+
+/* bulb animation */
+
+@keyframes bulb {
+  0% {
+    transform: scale(1);
   }
 
+  50% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }

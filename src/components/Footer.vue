@@ -15,7 +15,7 @@ footer {
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(10px);
-  color: white;
+  color: var(--light-color);
   text-align: center;
   padding: 1rem;
   height: 80px;

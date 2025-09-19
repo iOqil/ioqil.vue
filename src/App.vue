@@ -18,35 +18,16 @@ export default {
   </main>
 </template>
 
-<style scoped>
-.content {
-  height: calc(100dvh - 80px);
-  overflow-y: auto;
-
-  /* width */
-  &::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  /* Track */
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #003800, #00ff0080);
-  }
-
-  /* Handle on hover */
-  &::-webkit-scrollbar-thumb:hover {
-    background: blue;
-  }
+<style scoped lang="scss">
+main {
+  width: calc(100% - 80px);
+  margin-left: 80px;
 }
 
 @media (max-width: 780px) {
-  .content {
-    height: calc(100dvh - 60px);
+  main {
+    width: calc(100% - 60px);
+    margin-left: 60px;
   }
 }
 </style>

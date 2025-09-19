@@ -2,9 +2,10 @@
   <header>
     <nav>
       <a href="" class="logo-link">L</a>
+      <Button id="menu" class="bg-none"><ion-icon name="grid-outline"></ion-icon></Button>
       <ul class="nav-links">
         <li class="dropdown-parent">
-          <a href="">
+          <a>
             <span>Home</span>
             <ion-icon name="chevron-down-outline"></ion-icon>
           </a>
@@ -19,20 +20,45 @@
         <li><a href="">Services</a></li>
         <li><a href="">Contact</a></li>
       </ul>
+      <div class="buttons">
+        <Button class="bg-none">Login</Button>
+        <Button>Sign Up</Button>
+      </div>
     </nav>
-    <div class="buttons">
-      <Button class="bg-none">Login</Button>
-      <Button>Sign Up</Button>
-    </div>
   </header>
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'Navbar',
+
+  mounted() {
+    const menuBtn = document.getElementById('menu')
+    const navLinks = document.querySelector('.nav-links')
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('show')
+    })
+
+    window.addEventListener('click', (e) => {
+      if (
+        e.target !== menuBtn &&
+        !menuBtn.contains(e.target) &&
+        e.target !== navLinks &&
+        !navLinks.contains(e.target)
+      ) {
+        navLinks.classList.remove('show')
+      }
+    })
+  },
+}
 </script>
 
 <style scoped lang="scss">
 header {
+  position: sticky;
+  top: 0;
+  z-index: 99999;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,6 +67,7 @@ header {
   border-bottom: 1px solid var(--border-color-30);
   backdrop-filter: blur(12px);
   nav {
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 40px;
@@ -55,6 +82,20 @@ header {
       color: var(--primary-color);
       text-decoration: none;
     }
+
+    #menu {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      padding: unset;
+      font-size: 24px;
+      outline: none;
+      border: none;
+      order: 999;
+      display: none;
+    }
+
     ul {
       display: flex;
       gap: 20px;
@@ -64,7 +105,7 @@ header {
       a {
         font-size: 16px;
         text-decoration: none;
-        color: #fff;
+        color: var(--light-color);
         display: flex;
         align-items: center;
         gap: 4px;
@@ -98,7 +139,7 @@ header {
               height: 40px;
               display: block;
               padding: 0 16px;
-              color: #fff;
+              color: var(--light-color);
               text-transform: capitalize;
               display: flex;
               align-items: center;
@@ -126,6 +167,7 @@ header {
   }
 
   .buttons {
+    margin-left: auto;
     display: flex;
     gap: 16px;
   }
@@ -134,20 +176,97 @@ header {
 @media (max-width: 780px) {
   header {
     min-height: 60px;
+    padding-right: 20px;
 
     nav {
+      gap: 20px;
       .logo-link {
         width: 60px;
         height: 60px;
         font-size: 24px;
       }
 
+      #menu {
+        display: grid;
+        margin-left: auto;
+      }
+
       ul {
+        width: calc(100% - 60px);
+        background: var(--bg-color);
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 35px;
+        right: 0;
+        gap: 5px;
+        padding: 10px;
+        border: 1px solid var(--border-color-30);
+        border-left: 0;
+        border-right: 0;
+        z-index: -1;
+        opacity: 0;
+
+        // btn hide
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.8s ease,
+          opacity 0.8s ease,
+          top 0.8s ease;
+
+        li {
+          background: var(--card-color);
+          padding: 5px 10px;
+          border-radius: 5px;
+        }
+
         .dropdown-parent {
+          position: relative;
+          z-index: 1;
           .dropdown {
-            // display: none;
+            padding: unset;
+            width: 100%;
+            margin-top: unset;
+            background-color: none;
+            box-shadow: unset;
+            position: relative;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            border-radius: 5px;
+            border: unset;
+            opacity: 1;
+
+            li {
+              padding: unset;
+              a {
+                background: var(--tag-color);
+                border-radius: 5px;
+              }
+
+              &:first-child {
+                margin-top: 5px;
+              }
+              &:last-child {
+                margin-bottom: 5px;
+              }
+            }
           }
         }
+      }
+
+      ul.show {
+        max-height: 1000px;
+        z-index: 1;
+        opacity: 1;
+        top: 60px;
+        transition: max-height 1s ease;
+      }
+
+      .buttons {
+        margin-left: unset;
       }
     }
   }

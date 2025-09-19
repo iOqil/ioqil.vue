@@ -11,7 +11,6 @@ export default {
 <style scoped>
 .bg-d {
   height: 100vh;
-  background: rgba(255, 0, 0, 0.048);
   background-size: cover;
 }
 </style>
