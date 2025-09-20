@@ -15,7 +15,7 @@
         <Social><ion-icon name="call-outline"></ion-icon></Social>
       </div>
       <div class="action">
-        <Social><ion-icon name="arrow-up-outline"></ion-icon></Social>
+        <Social href="#" target="_top"><ion-icon name="arrow-up-outline"></ion-icon></Social>
       </div>
     </div>
   </aside>
@@ -60,7 +60,7 @@ export default {
 <style scoped lang="scss">
 aside {
   position: fixed;
-  top: 80px;
+  bottom: 0;
   left: 0;
   width: 80px;
   padding: 20px 0;

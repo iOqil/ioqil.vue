@@ -18,7 +18,7 @@ button {
   border: 1px solid var(--primary-color);
   background-color: var(--primary-color);
   color: var(--bg-color);
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   font-size: 16px;
   transition: all 0.3s ease;
 

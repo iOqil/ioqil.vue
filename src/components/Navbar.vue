@@ -1,14 +1,16 @@
 <template>
   <header>
     <nav>
-      <a href="" class="logo-link">L</a>
+      <RouterLink to="/" class="logo-link">
+        <ion-icon name="code-slash-outline"></ion-icon>
+      </RouterLink>
       <Button id="menu" class="bg-none"><ion-icon name="grid-outline"></ion-icon></Button>
       <ul class="nav-links">
         <li class="dropdown-parent">
-          <a>
+          <RouterLink to="/">
             <span>Home</span>
             <ion-icon name="chevron-down-outline"></ion-icon>
-          </a>
+          </RouterLink>
           <ul class="dropdown">
             <li><a href="#">Hero</a></li>
             <li><a href="#">Projects</a></li>
@@ -16,9 +18,12 @@
             <li><a href="#">Testimitionals</a></li>
           </ul>
         </li>
-        <li><a href="">About</a></li>
-        <li><a href="">Services</a></li>
-        <li><a href="">Contact</a></li>
+        <li><a>About</a></li>
+        <li><a>Services</a></li>
+        <li>
+          <RouterLink to="/blog">Blog</RouterLink>
+        </li>
+        <li><a>Contact</a></li>
       </ul>
       <div class="buttons">
         <Button class="bg-none">Login</Button>
@@ -65,6 +70,7 @@ header {
   padding-right: 40px;
   min-height: 80px;
   border-bottom: 1px solid var(--border-color-30);
+  background: var(--bg-color-30);
   backdrop-filter: blur(12px);
   nav {
     width: 100%;

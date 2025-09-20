@@ -17,8 +17,14 @@
   --border-color-30: #1113;
   --primary-color: #111;
   --card-color: #fff;
+  --card-color-30: #fff3;
   --tag-color: #f1f1f1;
   --light-color: #111;
+  --text-color: #111;
+  --bg-color-30: #ffffff80;
+  --shadow: 2px 6px 10px 0 #0001;
+  --cursor-default: url('./images/cursor.svg') 4 4, auto;
+  --cursor-pointer: url('./images/cursor-hover.svg') 4 4, auto;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,14 +34,21 @@
     --border-color-30: #00ff0030;
     --primary-color: #00ff00;
     --card-color: #222;
+    --card-color-30: #2223;
     --tag-color: #333;
     --light-color: #fff;
+    --text-color: #eee;
+    --bg-color-30: #1118;
+    --shadow: 0 0 10px 2px #00ff0050;
   }
-}
 
-@media (max-width: 780px) {
-  :root {
-    --grid-size: 30px;
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #003800, #00ff0080);
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00ff00;
   }
 }
 
@@ -45,23 +58,18 @@ html.light {
   --border-color-30: #1113;
   --primary-color: #111;
   --card-color: #fff;
+  --card-color-30: #fff3;
   --tag-color: #f1f1f1;
   --light-color: #111;
+  --text-color: #333;
+  --bg-color-30: #ffffff80;
+  --shadow: 2px 6px 10px 0 #0001;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-#app {
-  height: 100dvh;
-  /* overflow: hidden; */
-}
-
-body {
-  background: var(--bg-grid);
-  ;
-  background-color: var(--bg-color);
+@media (max-width: 780px) {
+  :root {
+    --grid-size: 30px;
+  }
 }
 
 /* width */
@@ -75,13 +83,28 @@ body {
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+html.light::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #003800, #00ff0080);
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: blue;
+html.light::-webkit-scrollbar-thumb:hover {
+  background: #111;
+}
+
+html {
+  scroll-behavior: smooth;
+  cursor: var(--cursor-default);
+}
+
+body {
+  background: var(--bg-grid);
+  ;
+  background-color: var(--bg-color);
+}
+
+a:hover {
+  cursor: var(--cursor-pointer);
 }
 
 /* bulb animation */

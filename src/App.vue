@@ -12,7 +12,9 @@ export default {
   <main>
     <Aside />
     <div class="content">
-      <RouterView />
+      <div class="content__data">
+        <RouterView />
+      </div>
       <Footer />
     </div>
   </main>
@@ -22,6 +24,13 @@ export default {
 main {
   width: calc(100% - 80px);
   margin-left: 80px;
+
+  .content {
+    &__data {
+      min-height: calc(100vh - 161px);
+      padding: 20px;
+    }
+  }
 }
 
 @media (max-width: 780px) {

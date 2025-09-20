@@ -1,16 +1,15 @@
 <template>
-  <div class="bg-d"></div>
+    <PageTitle />
+
 </template>
 
 <script>
+import PageTitle from '@/ui-components/PageTitle.vue';
+
 export default {
   name: 'HomeView',
 }
 </script>
 
 <style scoped>
-.bg-d {
-  height: 100vh;
-  background-size: cover;
-}
 </style>
